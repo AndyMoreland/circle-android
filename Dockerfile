@@ -12,5 +12,6 @@ RUN apk add --update git && \
     apk add --update jq && \
     apk add --update openjdk8 && \
     rm -rf /tmp/* /var/cache/apk/*
-
 ENV PATH="/usr/lib/jvm/default-jvm/bin/:${PATH}"
+RUN npm config set unsafe-perm true && npm install -g gulp turtle-cli@0.5.15 expo-cli && npm config set unsafe-perm false
+RUN turtle setup:android
